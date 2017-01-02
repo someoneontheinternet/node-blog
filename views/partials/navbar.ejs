@@ -1,0 +1,67 @@
+
+    <nav class="navbar pre navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+
+          <button type="button" id="btn-navbar-top-toggle" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-top-toggle" aria-expanded="false">
+            <div id="nav-icon">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
+
+          <a class="navbar-brand" href="#">Blog</a>
+
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-top-toggle">
+
+          <ul class="nav navbar-nav navbar-center">
+            <li>
+              <a href="#">Home</a>
+              <div class="bar"></div>
+            </li>
+            <li>
+              <a href="#">Profile</a>
+              <div class="bar"></div>
+            </li>
+            <li>
+              <a href="#">Subscriptions</a>
+              <div class="bar"></div>
+            </li>
+            <li>
+              <a href="#">Mine</a>
+              <div class="bar"></div>
+            </li>
+            <li>
+              <a href="#">About</a>
+              <div class="bar"></div>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <% if (userInfo == null) { %>
+            <li>
+              <a href="/login">Login</a>
+              <div class="bar"></div>
+            </li>
+            <li>
+              <a href="/register">Sign up</a>
+              <div class="bar"></div>
+            </li>
+            <% } else { %>
+              <li>
+                <a href="/profile"><%= userInfo.name %></a>
+                <div class="bar"></div>
+              </li>
+              <li>
+                <a href="/logout">Logout</a>
+                <div class="bar"></div>
+              </li>
+            <% } %>
+          </ul>
+        </div>
+
+      </div>
+    </nav>

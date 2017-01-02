@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Login</title>
+
+  </head>
+  <body>
+
+    <style>
+
+      button {
+        float: right;
+      }
+
+      body {
+        background-color: #e8e8e8;
+      }
+
+      form {
+        background-color: #fff;
+      }
+
+      .con {
+        display: flex;
+        justify-content: center;
+      }
+
+      .login {
+        position: relative;
+        top: 25vh;
+        grow: 1;
+        background-color: #fff;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+        padding: 2%;
+        width: 40%;
+        height: 60%
+      }
+
+      @media screen and (max-width: 770px) {
+        .login {
+          top: 30vh;
+          width: 75%;
+          height: 80%;
+          margin-left: 7.5%;
+          margin-right: 7.5%;
+        }
+      }
+
+      @media screen and (max-height: 400px) {
+        .login {
+          top: calc(10vh + 5vw);
+          width: 75%;
+          height: 80%;
+          margin-left: 7.5%;
+          margin-right: 7.5%;
+        }
+      }
+
+    </style>
+    <div class="con">
+      <div class="login">
+        <form method="post" action="/login">
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" name="username" placeholder="Username">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
