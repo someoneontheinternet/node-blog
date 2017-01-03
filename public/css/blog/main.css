@@ -420,6 +420,19 @@ div.bar {
   border-bottom: 1px solid #ddd;
 }
 
+.comment h3 {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.comment h3 a {
+  font-size: 16px;
+}
+
 #main-section {
   margin-top: 50px;
+  padding-bottom: 50px;
+}
+
+#com-section .comment {
+  padding-bottom: 15px;
 }

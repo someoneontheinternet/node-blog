@@ -20,7 +20,7 @@ router.get('/:id', function(req, res) {
 
 router.post('/', function(req, res) {
 
-  var testPost = new Blog({
+  var newPost = new Blog({
     heading: "my-delete-test",
     title: "Title Of another Page",
     author: "Sam",

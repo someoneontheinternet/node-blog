@@ -104,8 +104,12 @@ app.use('/db/comment', comment);
 app.use('/', users);
 
 // TESTING
-app.get('/blog', function(req, res) {
-  res.render('blog', { userInfo: req.user });
+app.get('/blog/:id', function(req, res) {
+
+  var id = req.params.id;
+
+  res.render('blog', { userInfo: req.user, ID: id });
+
 });
 
 app.get('*', function(req, res) {
