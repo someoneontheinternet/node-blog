@@ -4,12 +4,6 @@ $('body').animate({
 }, 1);
 
 $(window).load(function() {
-  $('.banner-title').removeClass('pre');
-  $('.banner-subtitle').removeClass('pre');
-  $('.banner-scrolldown').removeClass('pre');
-  $('.navbar').removeClass('pre');
-  $('.title-position').removeClass('pre');
-
   var doc = $(window);
   var pos = 0;
 

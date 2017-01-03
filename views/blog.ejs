@@ -15,13 +15,7 @@
 </head>
 <body>
 
-  <div class="banner">
-
-    <% include partials/banner %>
-
-    <% include partials/navbar %>
-
-  </div>
+  <% include partials/navbar %>
 
   <div id="main-section">
     <div class="container">
@@ -38,7 +32,7 @@
           <div class="main">
             <p>
               <h1>Heading</h1>
-              Received the likewise law graceful his. Nor might set along charm now equal green. Pleased yet equally correct colonel not one. Say anxious carried compact conduct sex general nay certain. Mrs for recommend exquisite household eagerness preserved now. My improved honoured he am ecstatic quitting greatest formerly.
+              Received the likewise law graceful his. Nor might set along charm now equal green. Pleased yet equally correct colonel not one. Say anxious carried compact conduct general nay certain. Mrs for recommend exquisite household eagerness preserved now. My improved honoured he am ecstatic quitting greatest formerly.
 
               <br />
               <br />
@@ -57,7 +51,7 @@
 
           <!-- Create a comment -->
 
-          <form id="create-comment">
+          <form id="create-comment" method="post" action="/db/comment">
             <input type="text" name="title" placeholder="Title"/>
             <p>
               <textarea class="text-area" name="comment" placeholder="This is a comment"></textarea>
@@ -71,24 +65,22 @@
 
           <div id="com-section">
 
-            <!-- example comment -->
+            <!-- example comment --> <!--
             <div class="comment">
               <h3>Heading - by TheLegend27: 12/26/2017</h3>
               <p>
                 Parish so enable innate in formed missed. Hand two was eat busy fail. Stand smart grave would in so. Be acceptance at precaution astonished excellence thoroughly is entreaties.
               </P>
             </div>
+            -->
 
-            <div class="comment">
-              <h3>Heading - by TheLegend28: 12/26/2017</h3>
-              <p>
-                Yourself required no at thoughts delicate landlord it be. Branched dashwood do is whatever it. Farther be chapter at visited married in it pressed. By distrusts procuring be oh frankness existence believing instantly if. Doubtful on an juvenile as of servants insisted. Judge why maids led sir whose guest drift her point. Him comparison especially friendship was who sufficient attachment favourable how. Luckily but minutes ask picture man perhaps are inhabit. How her good all sang more why.
-              </P>
-            </div>
+            <script>
 
-            <div class="comment-end">
 
-            </div>
+
+            </script>
+
+              <div class="comment-end"></div>
             </div>
             </div>
           </div>

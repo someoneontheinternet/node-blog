@@ -61,6 +61,9 @@ body {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 }
 nav.navbar {
+
+    background-color: #222;
+
     -webkit-transition-delay: 0.1s;
     transition-delay: 0.1s;
     -webkit-transition-duration: 0.3s;
@@ -415,4 +418,8 @@ div.bar {
   margin-right: 7%;
 
   border-bottom: 1px solid #ddd;
+}
+
+#main-section {
+  margin-top: 50px;
 }

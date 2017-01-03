@@ -19,15 +19,6 @@ $(window).load(function() {
     start = $('#main-section').offset().top - 50;
   });
 
-  doc.on('scroll', _.throttle(function() {
-      pos = doc.scrollTop();
-      if (pos >= start) {
-        navbar.css('background-color', '#222');
-      } else {
-        navbar.css('background-color', 'rgba(0, 0, 0, 0)');
-      }
-  }, 100, { leading: true }));
-
 });
 
 var btnToggle = $('#btn-navbar-top-toggle');

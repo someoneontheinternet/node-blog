@@ -9,9 +9,7 @@ router.get('/:id', function(req, res) {
 
 function getNewId() {
   var id =  "" + Math.ceil(Math.random() * 10000000);
-
   return id;
-
 }
 
 function ifLoggedIn(req, res, next) {
@@ -30,15 +28,15 @@ router.post('/', ifLoggedIn, function(req, res) {
       newId = getNewId();
     }
 
-    var testComment = new Comment({
+    var newComment = new Comment({
       id: newId,
       username: req.user.username,
-      title: "A random title",
-      comment: "A random comment",
-      date: "1/1/2017"
+      title: req.body.title,
+      comment: req.body.comment,
+      date: Date.now()
     });
 
-    Comment.createComment(testComment, function(err) {
+    Comment.createComment(newComment, function(err) {
       if (err) res.send(err);
 
       res.send('Sucess');
