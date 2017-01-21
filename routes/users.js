@@ -12,7 +12,11 @@ router.get('/register', function(req, res){
 
 // Login
 router.get('/login', function(req, res){
-	res.render('login');
+	res.render('login', {err_msg : null });
+});
+
+router.get('/login-fail', function(req, res) {
+	res.render('login', { err_msg : "The Username or Password is Incorrect!" });
 });
 
 // Register User
@@ -88,8 +92,15 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
+router.post('/login-fail',
+  passport.authenticate('local', {successRedirect:'/', failureRedirect:'/login-fail', failureFlash: false}),
+  function(req, res) {
+    res.redirect('/');
+  });
+
+// Normal Login
 router.post('/login',
-  passport.authenticate('local', {successRedirect:'/', failureRedirect:'/login', failureFlash: true}),
+  passport.authenticate('local', {successRedirect:'/', failureRedirect:'/login-fail', failureFlash: false}),
   function(req, res) {
     res.redirect('/');
   });

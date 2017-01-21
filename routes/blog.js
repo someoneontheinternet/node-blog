@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/:id', function(req, res) {
-  var id = req.params.id;
+  var id = req.params.id; 
 
   Blog.getBlogByTitle(id, function(result) {
     res.send(result);

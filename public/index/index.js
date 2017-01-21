@@ -1,7 +1,9 @@
 
+/*
 $('body').animate({
     scrollTop: "0px"
 }, 1);
+*/
 
 $(window).load(function() {
   var doc = $(window);
@@ -9,6 +11,8 @@ $(window).load(function() {
 
   var start = $('#main-section').offset().top - 50;
   var navbar = $('.navbar-inverse');
+
+  $(".pre").removeClass("pre");
 
   $(window).resize(function() {
     start = $('#main-section').offset().top - 50;

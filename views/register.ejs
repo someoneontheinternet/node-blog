@@ -7,62 +7,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>Register</title>
 
+    <link rel="stylesheet" href="/register/reg.css"></link>
+
   </head>
   <body>
-
-        <style>
-
-          button {
-            float: right;
-          }
-
-          body {
-            background-color: #e8e8e8;
-          }
-
-          form {
-            background-color: #fff;
-          }
-
-          .con {
-            display: flex;
-            justify-content: center;
-          }
-
-          .login {
-            position: relative;
-            top: 10vh;
-            grow: 1;
-            background-color: #fff;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-            padding: 2%;
-            width: 40%;
-            height: 60%
-          }
-
-          @media screen and (max-width: 770px) {
-            .login {
-              top: 5vh;
-              width: 75%;
-              height: 80%;
-              margin-left: 7.5%;
-              margin-right: 7.5%;
-              padding-bottom: 10%;
-            }
-          }
-
-          @media screen and (max-height: 400px) {
-            .login {
-              top: calc(10vh + 5vw);
-              width: 75%;
-              height: 80%;
-              margin-left: 7.5%;
-              margin-right: 7.5%;
-            }
-          }
-
-        </style>
 
     <div class="con">
       <div class="login">
@@ -76,27 +24,24 @@
         <h1>Register</h1>
         <form method="post" action="/register">
            <div class="form-group">
-            <label>Name</label>
             <input type="text" class="form-control" placeholder="Name" name="name">
           </div>
           <div class="form-group">
-            <label>Username</label>
             <input type="text" class="form-control" placeholder="Username" name="username">
           </div>
            <div class="form-group">
-            <label>Email</label>
             <input type="email" class="form-control" placeholder="Email" name="email">
           </div>
           <div class="form-group">
-            <label>Password</label>
             <input type="password" class="form-control" placeholder="Password" name="password">
           </div>
           <div class="form-group">
-            <label>Confirm Password</label>
-            <input type="password" class="form-control" placeholder="Password" name="password2">
+            <input type="password" class="form-control" placeholder="Confirm password" name="password2">
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-          <button class="btn btn-info" id="login" style="margin-right: 10px;">Login</button>
+          <div class="button-group">
+            <button type="submit" class="btn btn-default">Submit</button>
+            <button class="btn btn-info" id="login" style="margin-right: 10px;">Login</button>
+          </div>
         </form>
         </div>
       </div>

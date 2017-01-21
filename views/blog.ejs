@@ -9,8 +9,8 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="../css/blog/main.css" />
-  <link rel="stylesheet" href="../css/icon.css" />
+  <link rel="stylesheet" href="/blog/main.css" />
+  <link rel="stylesheet" href="/icon.css" />
 
 </head>
 <body>
@@ -51,7 +51,7 @@
 
       <div id="comments">
         <div class="comment-section">
-          <h1>Comments</h1>
+          <h1 class="comment-section-title">Comments</h1>
 
           <!-- Create a comment -->
 
@@ -86,97 +86,61 @@
 
     <br /><br /><br /><br /><br /><br /><br />
 
-    <% include partials/footer %>
-
 </body>
 <footer>
   <% include partials/scripts %>
-  <script>
-    $('body').animate({
-        scrollTop: "0px"
-    }, 1);
 
-    $(window).load(function() {
-      $('.banner-title').removeClass('pre');
-      $('.banner-subtitle').removeClass('pre');
-      $('.banner-scrolldown').removeClass('pre');
-      $('.navbar').removeClass('pre');
-      $('.title-position').removeClass('pre');
+  <script src="/blog/blog.js"></script>
 
-      var doc = $(window);
-      var pos = 0;
+  <script type="text/javascript">
 
-      var start = $('#main-section').offset().top - 50;
-      var navbar = $('.navbar-inverse');
+  var blog = $('.main p');
+  var meta = $('.meta');
+  var title = $('#blog-title');
 
-      $(window).resize(function() {
-        start = $('#main-section').offset().top - 50;
-      });
+  $.ajax({
+    url: '/db/blog/<%= ID %>',
+    type: 'GET',
+    success: function(data) {
+      // setting blog content
+      console.log(data);
+      title.append(data.title);
+      blog.append(data.body);
+      meta.append('<a>Date: ' + data.created + '</a>');
+      meta.append('<a>| Author: ' + data.author + '</a>');
 
-    });
+      //  seting comments
+      var commentID = data.comments;
 
-    var btnToggle = $('#btn-navbar-top-toggle');
-    var icon = $('#nav-icon');
-    var navbarHeader = $('.navbar-header');
-
-    btnToggle.click(function() {
-      if (navbarHeader.hasClass('open')) {
-        setTimeout(function() {
-          navbarHeader.removeClass('open');
-        }, 322);
-      } else {
-        navbarHeader.addClass('open');
+      for (var i = 0; i < commentID.length; i++) {
+        setComment(commentID[i]);
       }
+    }
+  });
 
-      icon.toggleClass('open');
-    });
+  function setComment(comment) {
+    var commentSection = $('#com-section');
 
-    var blog = $('.main p');
-    var meta = $('.meta');
-    var title = $('#blog-title');
+    console.log(comment);
+
+    var link = "/db/comment/" + comment.id;
 
     $.ajax({
-      url: '/db/blog/<%= ID %>',
+      url: link,
       type: 'GET',
       success: function(data) {
-        // setting blog content
-        console.log(data);
-        title.append(data.title);
-        blog.append(data.body);
-        meta.append('<a>Date: ' + data.created + '</a>');
-        meta.append('<a>| Author: ' + data.author + '</a>');
+        if (data.id != "0") {
 
-        //  seting comments
-        var commentID = data.comments;
+          var comment = '<div class="comment">' + '<h3>' + data.title + ' <a> - by ' + data.username + ': ' + data.date + '</a>' + '</h3>' + '<p>' + data.comment + '</p>' + '</div>';
 
-        for (var i = 0; i < commentID.length; i++) {
-          setComment(commentID[i]);
+          commentSection.append(comment);
+
         }
       }
     });
-
-    function setComment(comment) {
-      var commentSection = $('#com-section');
-
-      console.log(comment);
-
-      var link = "/db/comment/" + comment.id;
-
-      $.ajax({
-        url: link,
-        type: 'GET',
-        success: function(data) {
-          if (data.id != "0") {
-
-            var comment = '<div class="comment">' + '<h3>' + data.title + ' <a> - by ' + data.username + ': ' + data.date + '</a>' + '</h3>' + '<p>' + data.comment + '</p>' + '</div>';
-
-            commentSection.append(comment);
-
-          }
-        }
-      });
-    }
+  }
 
   </script>
+
 </footer>
 </html>

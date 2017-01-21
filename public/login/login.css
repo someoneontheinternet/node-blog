@@ -1,0 +1,117 @@
+body {
+  background: url('/res/loginBackground.jpg') center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+div.con {
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.login {
+  position: relative;
+  width: 65%;
+  padding: 0;
+  margin: 0;
+
+  left: 17.5%;
+
+  top: 20%;
+}
+
+.contain {
+  margin: 0 auto;
+  max-width: 450px;
+}
+
+@media screen and (max-width: 520px) {
+  .login {
+    left: 0px;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+.form-control {
+  border-radius: 0px !important;
+  background-color: rgba(255, 255, 255, 0);
+  outline: none;
+  border: none;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.form-control:hover, .form-control:active {
+  border-bottom: 1px solid #eee;
+}
+
+.form-control::-webkit-input-placeholder {
+   color: rgba(255, 255, 255, 0.5);
+}
+
+.form-control:-moz-placeholder { /* Firefox 18- */
+   color: rgba(255, 255, 255, 0.5);
+}
+
+.form-control::-moz-placeholder {  /* Firefox 19+ */
+   color: rgba(255, 255, 255, 0.5);
+}
+
+.form-control:-ms-input-placeholder {
+   color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group label {
+  margin-left: 5px;
+  color: #ffffff;
+
+  text-shadow: 1px 1px 1px rgba(150, 150, 150, 0.5);
+}
+
+form a {
+  color: #eee;
+}
+
+form a:hover, form a:visited {
+  color: #fff;
+}
+
+button.submit {
+  background-color: #222 !important;
+  color: #fff !important;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 0px;
+
+  margin-top: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.error-msg {
+
+  margin: 0 auto;
+
+  width: 70%;
+  background-color: rgba(231, 76, 60, 0.7);
+  border-radius: 5px;
+
+  padding-left: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 30px;
+
+  color: #fff;
+}
+
+.login-form {
+  margin-top: 20px;
+}

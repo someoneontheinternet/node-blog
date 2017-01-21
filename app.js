@@ -1,4 +1,15 @@
+const PRODCTION = false;
+const PORT = 3000;
+
 console.log("Server Started...");
+
+if (PRODCTION) {
+  PORT = 60000;
+  console.log("Server is in production mode.");
+} else {
+  console.log("Server is NOT in production mode.");
+}
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -23,14 +34,8 @@ var sessionSchema = new mongoose.Schema({});
 var PassedSessions = mongoose.model('session', sessionSchema);
 // Remove all session at start
 PassedSessions.remove({}, function(err) {
-  if (err) {
+  if (err)
     console.log("ERROR: Failed to drop all expired sessions.");
-  }
-});
-PassedSessions.collection.dropAllIndexes(function (err) {
-  if (err) {
-    console.log("ERROR: Failed to drop indeces.");
-  }
 });
 
 var MongoStore = require('connect-mongo')(session);
@@ -39,15 +44,25 @@ console.log("Initializing app..");
 
 var app = express();
 
+// TODO DEV - Disable EJS Caching
+if (!PRODCTION) {
+  app.disable('view cache');
+}
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
+
+// Logger
+if (!PRODCTION) {
+  app.use(logger('dev'));
+}
+
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -58,7 +73,7 @@ var opt = {
   store: new MongoStore({
     url: 'mongodb://session:session@ds051873.mlab.com:51873/blog'
   }),
-  cookie: { maxAge: 60000 }
+  cookie: { maxAge: 600000 }
 }
 
 // Express Session
@@ -108,14 +123,17 @@ app.get('/blog/:id', function(req, res) {
 
   var id = req.params.id;
 
+  console.log(id);
+
   res.render('blog', { userInfo: req.user, ID: id });
 
 });
 
 app.get('*', function(req, res) {
+  res.status(404);
   res.render('404');
 });
 
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
+app.listen(PORT, function() {
+  console.log("Server started on port " + PORT + ".");
 });
