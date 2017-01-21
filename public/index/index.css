@@ -144,31 +144,7 @@ ul.nav.navbar-nav li a {
 .navbar-header.open {
     background: rgba(0, 0, 0, 0.7);
 }
-div.footer {
-    background-color: #202023;
-    color: #ddd;
-    width: 100%;
-    height: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-}
-.footer ul {
-    grow: 1;
-    list-style: none;
-    min-width: 150px;
-}
-.footer div {
-    grow: 2;
-}
+
 .container {
     padding-left: 15px;
     padding-right: 15px;

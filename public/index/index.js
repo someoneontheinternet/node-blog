@@ -1,9 +1,7 @@
 
-/*
 $('body').animate({
     scrollTop: "0px"
 }, 1);
-*/
 
 $(window).load(function() {
   var doc = $(window);

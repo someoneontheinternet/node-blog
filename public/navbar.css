@@ -1,0 +1,62 @@
+nav.navbar {
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+}
+nav.navbar.pre {
+    top: -4vh;
+    opacity: 0.3;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+}
+.navbar {
+    background-image: none;
+    background: none;
+    border: none;
+    text-shadow: none;
+    box-shadow: none;
+}
+.navbar-brand {
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: none !important;
+    color: #eee !important;
+}
+#btn-navbar-top-toggle:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+#btn-navbar-top-toggle:active {
+    background-color: rgba(0, 0, 0, 0);
+}
+#btn-navbar-top-toggle:focus {
+    background-color: rgba(0, 0, 0, 0);
+}
+#btn-navbar-top-toggle {
+    border: none;
+}
+.navbar-collapse {
+    border: none;
+    box-shadow: none;
+}
+ul.nav.navbar-nav {
+    text-align: center;
+}
+ul.nav.navbar-nav li a {
+    color: #fff;
+    font-size: 16px;
+    text-shadow: none;
+}
+.collapsing {
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, -0.1));
+}
+.collapse.in {
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, -0.1));
+}
+.navbar-header {
+    background: rgba(0, 0, 0, 0);
+}
+.navbar-header.open {
+    background: rgba(0, 0, 0, 0.7);
+}

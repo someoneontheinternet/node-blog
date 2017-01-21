@@ -129,6 +129,14 @@ app.get('/blog/:id', function(req, res) {
 
 });
 
+app.get('/home', function(req, res) {
+  res.render('home', { userInfo: req.user });
+});
+
+app.get('/subscriptions', function(req, res) {
+  res.render('subscriptions', { userInfo: req.user });
+});
+
 app.get('*', function(req, res) {
   res.status(404);
   res.render('404');
