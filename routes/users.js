@@ -41,12 +41,19 @@ router.post('/register', function(req, res){
 		res.render('register', { msg : errors });
 		console.log(errors);
 	} else {
+
 		var newUser = new User({
 			name: name,
 			email: email,
 			username: username,
 			password: password,
-			permission: 1
+			permission: 1,
+			profile_pic: "unknown",
+			subscribed: [
+				{
+					username: "admin"
+				}
+			]
 		});
 
 		User.createUser(newUser, function(err, user){

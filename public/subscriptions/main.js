@@ -1,4 +1,13 @@
 
+var subMeta = $('.sub-meta').children();
+var sub = [];
+
+for (var i = 0; i < subMeta.length; i++) {
+  var c = subMeta[i];
+  sub.push(c.name);
+}
+
+console.log(sub);
 
 
 

@@ -65,8 +65,6 @@ router.post('/', ifLoggedIn, function(req, res) {
     var d = new Date();
     var date = d.yyyymmdd();
 
-
-
     var newComment = new Comment({
       id: newId,
       username: req.user.username,

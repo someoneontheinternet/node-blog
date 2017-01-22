@@ -15,6 +15,15 @@ var UserSchema = mongoose.Schema({
 	},
 	name: {
 		type: String
+	},
+	permission: {
+		type: Number
+	},
+	profile_pic: {
+		type: String
+	},
+	subscribed: {
+		type: Array
 	}
 });
 

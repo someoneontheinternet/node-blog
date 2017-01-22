@@ -13,14 +13,75 @@
 
   <% include ./partials/navbar %>
 
+
 </head>
 
 <body>
 
+  <div class="title">
+    <h1>Subscription Feed</h1>
+  </div>
 
+  <div class="cont" id="cont">
+    <!-- Desktop: Left Mobile: Embeded top -->
+    <div class="sub-panel">
+      <h3>Subscribed Users</h3>
+      <ul class="sub-list">
+
+        <!-- Example -->
+        <li>
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="pic" src="/tmp/2fb52b8bfe812fb52b8bfe810d9.png">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">User123</h4>
+            </div>
+          </div>
+        </li>
+
+
+
+      </ul>
+    </div>
+
+    <div class="main">
+      <h3>Feed</h3>
+      <div class="con">
+
+        <!-- Example -->
+        <div class="blog">
+          <div class="media-left">
+            <img class="blog-icon" src="/tmp/2fb52b8bfe812fb52b8bfe810d9.png"/>
+          </div>
+          <div class="media-body">
+            <h4 class="heading-title">This is a blog</h4>
+            <p class="preview">
+              Is at purse tried jokes china ready decay an. Small its shy way had woody downs power. To denoting admitted speaking learning my exercise so in. Procured shutters mr it feelings...
+            </p>
+          </div>
+        </div>
+
+        
+
+
+      </div>
+    </div>
+  </div>
 </body>
 <footer>
   <% include ./partials/scripts %>
+
+  <div class="sub-meta">
+    <% if (userInfo != null) { %>
+      <% for (var i = 0; i < userInfo.subscribed.length; i++) { %>
+        <input type="text" name="<%= userInfo.subscribed[i].username %>" />
+      <% } %>
+    <% } %>
+  </div>
+
   <script src="/subscriptions/main.js"></script>
 </footer>
 </html>

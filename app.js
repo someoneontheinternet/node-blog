@@ -108,6 +108,7 @@ console.log("Creating routes...");
 var blog = require('./routes/blog');
 var comment = require('./routes/comment');
 var users = require('./routes/users');
+var api = require('./routes/api');
 
 app.get('/', function(req, res) {
   res.render('index', { userInfo: req.user });
@@ -117,6 +118,7 @@ app.get('/', function(req, res) {
 app.use('/db/blog', blog);
 app.use('/db/comment', comment);
 app.use('/', users);
+app.use('/api', api);
 
 // TESTING
 app.get('/blog/:id', function(req, res) {
