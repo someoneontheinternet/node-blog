@@ -28,15 +28,17 @@ var mongoose = require('mongoose');
 mongoose.connect("mongodb://admin:admin@ds051873.mlab.com:51873/blog");
 var db = mongoose.connection;
 
-console.log("Removing all sessions");
+if (PRODCTION) {
+  console.log("Removing all sessions");
 
-var sessionSchema = new mongoose.Schema({});
-var PassedSessions = mongoose.model('session', sessionSchema);
-// Remove all session at start
-PassedSessions.remove({}, function(err) {
-  if (err)
-    console.log("ERROR: Failed to drop all expired sessions.");
-});
+  var sessionSchema = new mongoose.Schema({});
+  var PassedSessions = mongoose.model('session', sessionSchema);
+  // Remove all session at start
+  PassedSessions.remove({}, function(err) {
+    if (err)
+      console.log("ERROR: Failed to drop all expired sessions.");
+  });
+}
 
 var MongoStore = require('connect-mongo')(session);
 
@@ -62,7 +64,7 @@ if (!PRODCTION) {
 }
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -73,7 +75,7 @@ var opt = {
   store: new MongoStore({
     url: 'mongodb://session:session@ds051873.mlab.com:51873/blog'
   }),
-  cookie: { maxAge: 600000 }
+  cookie: { maxAge: 6000000 }
 }
 
 // Express Session
@@ -108,7 +110,8 @@ console.log("Creating routes...");
 var blog = require('./routes/blog');
 var comment = require('./routes/comment');
 var users = require('./routes/users');
-var api = require('./routes/api');
+var subAPI = require('./routes/sub');
+var profileAPI = require('./routes/profile');
 
 app.get('/', function(req, res) {
   res.render('index', { userInfo: req.user });
@@ -118,7 +121,9 @@ app.get('/', function(req, res) {
 app.use('/db/blog', blog);
 app.use('/db/comment', comment);
 app.use('/', users);
-app.use('/api', api);
+app.use('/api/sub', subAPI);
+app.use('/api', profileAPI);
+
 
 // TESTING
 app.get('/blog/:id', function(req, res) {
@@ -137,6 +142,15 @@ app.get('/home', function(req, res) {
 
 app.get('/subscriptions', function(req, res) {
   res.render('subscriptions', { userInfo: req.user });
+});
+
+app.get('/profile', function(req, res) {
+
+  if (!req.user) {
+    res.redirect('/login');
+  }
+
+  res.render('profile', { userInfo: req.user });
 });
 
 app.get('*', function(req, res) {

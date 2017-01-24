@@ -2,14 +2,29 @@
 var subMeta = $('.sub-meta').children();
 var sub = [];
 
+var out = "{";
+
 for (var i = 0; i < subMeta.length; i++) {
   var c = subMeta[i];
-  sub.push(c.name);
+  out = out + '"user": ' + '"' + c.name + '",';
 }
 
-console.log(sub);
+out = out.substring(0, out.length - 1);
+out = out + "}";
 
+console.log(out);
 
+var data = JSON.parse(out);
+
+console.log(data);
+
+$.ajax('http://localhost:3000/api/sub', {
+  type: 'POST',
+  data: data,
+  success: function(back) {
+    console.log(back);
+  }
+});
 
 
 

@@ -9,17 +9,44 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="css/icon.css" />
-  <link rel="stylesheet" href="css/profile.css" />
+  <link rel="stylesheet" href="/icon.css" />
+  <link rel="stylesheet" href="/profile/main.css" />
+
+  <% include partials/navbar %>
+
+  <div style="width: 100vw; height: 50px;"></div>
+
 </head>
 <body>
 
+  <div class="pic-wrapper">
+    <img src="/tmp/<%= userInfo.profile_pic %>" class="main-img">
+  </div>
+
+  <h1><%= userInfo.name %>'s Profile</h1>
+
+  <div class="container info">
+    <form id="form" class="form-group" action="/api/profile" enctype="multipart/form-data" method="post">
+      <label>Display Name</label>
+      <input class="form-control" type="text" value="<%= userInfo.name %>" placeholder="Display name"/>
+      <label>Username</label>
+      <input class="form-control" type="text" value="<%= userInfo.username %>" placeholder="Username"/>
+      <label>Email</label>
+      <input class="form-control" type="text" value="<%= userInfo.email %>" placeholder="Email"/>
+      <label>Upload Profile Picture</label>
+      <input class="form-control" type="file" name="picture" />
+
+      <button class="btn btn-success">Update</button>
+    </form>
+
+  </div>
+
+  <%= userInfo %>
 
 
 </body>
 <footer>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <% include partials/scripts %>
+  <script src="/profile/main.js"></script>
 </footer>
 </html>

@@ -1,0 +1,35 @@
+.pic-wrapper {
+  width: 100vw;
+
+  border-bottom: 1px solid #ddd;
+}
+
+.main-img {
+  width: 265px;
+  height: 265px;
+  border-radius: 128px;
+
+  margin-top: 25px;
+  margin-bottom: 5px;
+
+  position: relative;
+
+  left: calc(50vw - 128px);
+}
+
+body h1 {
+  text-align: center;
+}
+
+.container.info {
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.form-control {
+  margin-bottom: 5px;
+}
+
+.btn {
+  width: 100%;
+}

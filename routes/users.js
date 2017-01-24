@@ -48,7 +48,7 @@ router.post('/register', function(req, res){
 			username: username,
 			password: password,
 			permission: 1,
-			profile_pic: "unknown",
+			profile_pic: "unknown.png",
 			subscribed: [
 				{
 					username: "admin"
